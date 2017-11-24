@@ -1,0 +1,215 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	min-width: 480px;
+	margin: 0;
+
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+}
+
+p {
+	max-width: 32em;
+}
+
+.battlerites_table {
+	display: flex;
+	justify-content: center;
+	padding-top: 128px;
+}
+.ability_group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	margin: 0 8px;
+}
+.ability {
+	width: 64px;
+	height: 64px;
+	border-radius: 100%;
+	border: 1px grey solid;
+
+	margin: 8px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.battlerite {
+	width: 94px;
+	height: 94px;
+	border-radius: 8px;
+	border: 1px gray solid;
+	padding: 1px;
+
+	margin: 6px;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	top: 32px;
+}
+
+.battlerite_preview {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+.battlerite_preview > header {
+	height: 32px;
+}
+
+.battlerite_icon {
+	width: 48px;
+	height: 48px;
+	margin: 8px;
+	border-radius: 100%;
+	border: 1px black solid;
+}
+
+.battlerite_selected {
+	border: 2px black solid;
+	padding: 0px;
+}
+
+.battlerite_card {
+	visibility: hidden;
+	position: absolute;
+	width: 104px;
+	height: 128px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	background-color: white;
+	border-radius: 8px;
+	border: 1px black solid;
+}
+
+.battlerite_card > .battlerite_description {
+	padding: 8px;
+	font-size: small;
+	height: 96px;
+}
+
+.battlerite_card > header {
+	text-align: center;
+}
+
+.battlerite_card > .battlerite_remove {
+	visibility: hidden;
+
+	position: absolute;
+	background-color: white;
+	border: 1px black solid;
+
+	margin: auto;
+	width: 100px;
+	height: 32px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*text-align: center;*/
+
+	user-select: none;
+	cursor: default;
+}
+
+.battlerite_selected:hover > .battlerite_card > .battlerite_remove {
+	visibility: visible;
+}
+
+.battlerite_selected > .battlerite_card {
+	border-width: 2px;
+}
+
+.battlerite:hover > .battlerite_card {
+	visibility: visible;
+	width: 160px;
+	height: 212px;
+}
+
+.battlerite_name {
+	font-size: smaller;
+	text-align: center;
+}
+
+.ability_group > .ability_info_wrapper, .battlerite > .ability_info_wrapper {
+	visibility: hidden;
+	position: absolute;
+	top: 8px;
+	left: 0%;
+	height: 128px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.ability_info {
+	width: 800px;
+	height: 100%;
+	font-size: small;
+	display: flex;
+	justify-content: space-between;
+}
+.ability_info p {
+	max-width: 40em;
+	margin: 0;
+}
+.ability_description {
+	width: 60%
+}
+
+.ability_properties {
+	width: 35%;
+	height: 104px;
+}
+
+.ability_description h1 {
+	font-size: large;
+	margin: 0;
+}
+.ability_description h2 {
+	font-size: small;
+	font-weight: bold;
+	margin: 0;
+}
+.ability_properties {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ability_property {
+    flex-basis: 30%;
+}
+
+.ability_group:hover > .ability_info_wrapper, .battlerite:hover > .ability_info_wrapper {
+	visibility: visible;
+}
+
+.battlerite_counter {
+	margin-top: 16px;
+	text-align: center;
+}
+.battlerite_counter_number {
+	font-weight: bold;
+}

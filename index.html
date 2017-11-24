@@ -1,0 +1,464 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+<title>Battlerite</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="./style.css">
+<script language="javascript">
+battlerite_count = 0;
+
+function battlerite_conter_update() {
+	var cnts = document.getElementsByClassName("battlerite_counter_number");
+	cnts[0].innerHTML = battlerite_count;
+}
+
+function battlerite_toggle(el) {
+	if (el.className.match(/(?:^|\s)battlerite_selected(?!\S)/)) { //if selected
+		el.className = el.className.replace(/(?:|^\s)battlerite_selected(?!\S)/g, ''); //unselect
+		battlerite_count -= 1;
+	}
+	else {
+		if (battlerite_count < 5) {
+			el.className += " battlerite_selected";
+			battlerite_count += 1;
+		}
+	}
+	battlerite_conter_update();
+}
+</script>
+</head>
+<body>
+<div class="page">
+	<div class="battlerites_table">
+		<div class="ability_group" id="SoulBolt">
+			<div class="ability_info_wrapper">
+				<div class="ability_info">
+					<div class="ability_description">
+						<header class="ability_name"><h1>Soul Bolt</h1></header>
+						<p>Fire a Soul Bolt that deals 10 damage and inflicts Soul Bind on enemy hit. Heals 8 health and applies Spirit Link on ally hit.</p>
+						<h2>Spirit Link</h2>
+						<p>Heals 50% of healing received to nearby allies affected by Spirit Link.</p>
+						<h2>Soul Bind</h2>
+						<p>Deals 30% of damage taken to nearby allies affected by Soul Bind.</p>
+					</div>
+					<div class="ability_properties">
+						<div class="ability_property">
+							<div class="ability_property_value">0.3s</div>
+							<div class="ability_property_title">Cast Time</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">0.2s</div>
+							<div class="ability_property_title">Cooldown</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">6s</div>
+							<div class="ability_property_title">Spirit Link Duration</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">6s</div>
+							<div class="ability_property_title">Soul Bind Duration</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">20</div>
+							<div class="ability_property_title">Soul Bind Damage Cap</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">6%</div>
+							<div class="ability_property_title">Energy Gain</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ability"><span class="keybind">M1</span></div>
+			<div class="battlerites">
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="ShimmeringBound">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Shimmering Bound</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Shimmering Bound</header>
+						<div class="battlerite_description">Healing shared by Spirit Link increases to 65%.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="DarkSouls">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Dark Souls</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Soul Bind</header>
+						<div class="battlerite_description">Damage dealt by Soul Bind increases to 50%.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ability_group" id="OtherSide">
+			<div class="ability_info_wrapper">
+				<div class="ability_info">
+					<div class="ability_description">
+						<header class="ability_name"><h1>Other Side</h1></header>
+						<p>Send target ally into the spirit realm making them invulnerable and increases their movement speed by 40%. Heals self and nearby allies for 12 health when the effect ends.</p>
+					</div>
+					<div class="ability_properties">
+						<div class="ability_property">
+							<div class="ability_property_value">0.1s</div>
+							<div class="ability_property_title">Cast Time</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">12s</div>
+							<div class="ability_property_title">Cooldown</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">1.8s</div>
+							<div class="ability_property_title">Duration</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ability"><span class="keybind">M2</span></div>
+				<div class="battlerites">
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="Specter">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Specter</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Specter</header>
+						<div class="battlerite_description">Other Side turns the target invisible for the duration.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="SpiritWalker">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Spirit Walker</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Spirit Walker</header>
+						<div class="battlerite_description">Other Side movement speed increases by 50% and duration increases by 0.5s.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="IntoTheRealm">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Into the Realm</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Into the Realm</header>
+						<div class="battlerite_description">Other Side grants 6 additional healing and cooldown reduces by 1s.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="SoulTheft">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Soul Theft</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Soul Theft</header>
+						<div class="battlerite_description">Moving through an enemy during Other Side deals 8 damage and heals you for 8 health.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ability_group" id="SpiritGuide">
+			<div class="ability_info_wrapper">
+				<div class="ability_info">
+					<div class="ability_description">
+						<header class="ability_name"><h1>Spirit Guide</h1></header>
+						<p>Summon a Spirit Guide that heals an ally for 16 heals and deals 12 damage and knocks an enemy back. Can be cast again to teleport to the spirit.</p>
+					</div>
+					<div class="ability_properties">
+						<div class="ability_property">
+							<div class="ability_property_value">0.2s</div>
+							<div class="ability_property_title">Cast Time</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">8s</div>
+							<div class="ability_property_title">Cooldown</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">3s</div>
+							<div class="ability_property_title">Recast Duration</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">7%</div>
+							<div class="ability_property_title">Energy Gain</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ability"><span class="keybind">Space</span></div>
+			<div class="battlerites">
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="VengefulSpirit">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Vengeful Spirit</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Vengeful Spirit</header>
+						<div class="battlerite_description">Warping to Spirit Guide resets the cooldown of Spirit Rift</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="Phantasm">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Phantasm</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Phantasm</header>
+						<div class="battlerite_description">An ally affected by Spirit Guide takes 40% less damage and an enemy affected by Spirit Guide takes 25% more damage.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="GhostlyStrike">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Ghostly Strike</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Ghostly Strike</header>
+						<div class="battlerite_description">Spirit Guide damage increases by 6 and Knockback force increases by 60%</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ability_group" id="SpiritRift">
+			<div class="ability_info_wrapper">
+				<div class="ability_info">
+					<div class="ability_description">
+						<header class="ability_name"><h1>Spirit Rift</h1></header>
+						<p>Opens a rift that interrupts the next ability cast by nearby enemies. Inflicts Panic when an ability is interrupted. </p>
+						<h2>Panic</h2>
+						<p>Target runs away in panic for 2s. The panicked target runs at 20% increased movement speed. If the target takes enough damage the effect breaks.</p>
+					</div>
+					<div class="ability_properties">
+						<div class="ability_property">
+							<div class="ability_property_value">0.1s</div>
+							<div class="ability_property_title">Cast Time</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">10s</div>
+							<div class="ability_property_title">Cooldown</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">0.5s</div>
+							<div class="ability_property_title">Interrupt Duration</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">20</div>
+							<div class="ability_property_title">Panic Damage Limit</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ability"><span class="keybind">Q</span></div>
+			<div class="battlerites">
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="SpiritualWind">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Spiritual Wind</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Spiritual Wind</header>
+						<div class="battlerite_description">Spirit Rift increases your movement speed by 40% for 3s</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="SoulEssence">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Soul Essence</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Soul Essence</header>
+						<div class="battlerite_description">Spirit Rift cooldown is reduced by 1s and is further reduced by 1s for each enemy that triggers Panic</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ability_group" id="GhostWolf">
+			<div class="ability_info_wrapper">
+				<div class="ability_info">
+					<div class="ability_description">
+						<header class="ability_name"><h1>Ghost Wolf</h1></header>
+						<p>Summon a Ghost Wolf that strikes up to 3 targets. Deals 20/16/12 damage and inflicts Soul Bind on each hit.</p>
+					</div>
+					<div class="ability_properties">
+						<div class="ability_property">
+							<div class="ability_property_value">0.7s</div>
+							<div class="ability_property_title">Cast Time</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">6s</div>
+							<div class="ability_property_title">Cooldown</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">6s</div>
+							<div class="ability_property_title">Soul Bind Duration</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">20</div>
+							<div class="ability_property_title">Soul Bind Damage Cap</div>
+						</div>
+						<div class="ability_property">
+							<div class="ability_property_value">5%</div>
+							<div class="ability_property_title">Energy Gain</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ability"><span class="keybind">E</span></div>
+			<div class="battlerites">
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="Affection">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Affection</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Affection</header>
+						<div class="battlerite_description">Ghost Wolf returns to you after the final attack, healing you for 12 health and and granting you 6% energy.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="DireWolf">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Dire Wolf</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Dire Wolf</header>
+						<div class="battlerite_description">The first Ghost Wolf hit inflicts a 1s Root.</div>
+					</div>
+				</div>
+				<div class="battlerite" onclick="battlerite_toggle(this)" id="SniperWolf">
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Sniper Wolf</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Sniper Wolf</header>
+						<div class="battlerite_description">Ghost Wolf range increases by 20% and the first hit deals 4 bonus damage. Can love bloom even on a battlefield?</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ability_group" id="Misc">
+			<div class="ability"><span class="keybind">…</span></div>
+			<div class="battlerites">
+				<div class="battlerite battlerite_misc" onclick="battlerite_toggle(this)" id="PixieDust">
+					<div class="ability_info_wrapper">
+						<div class="ability_info">
+							<div class="ability_description">
+								<header class="ability_name"><h1>Pixie</h1></header>
+								<p>Summon a Pixie that mimics Soul Bolt. Mimicked Soul Bolts deals reduced damage and healing.</p>
+							</div>
+							<div class="ability_properties">
+								<div class="ability_property">
+									<div class="ability_property_value">0.1s</div>
+									<div class="ability_property_title">Cast Time</div>
+								</div>
+								<div class="ability_property">
+									<div class="ability_property_value">20s</div>
+									<div class="ability_property_title">Cooldown</div>
+								</div>
+								<div class="ability_property">
+									<div class="ability_property_value">7</div>
+									<div class="ability_property_title">Mimicked Damage</div>
+								</div>
+								<div class="ability_property">
+									<div class="ability_property_value">6</div>
+									<div class="ability_property_title">Mimicked Healing</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Pixie Dust</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Pixie Dust</header>
+						<div class="battlerite_description">Pixie deals full damage and healing on mimicked Soul Bolts and cooldown is reduced by 3s.</div>
+						
+					</div>
+				</div>
+				<div class="battlerite battlerite_misc" onclick="battlerite_toggle(this)" id="Condemn">
+					<div class="ability_info_wrapper">
+						<div class="ability_info">
+							<div class="ability_description">
+								<header class="ability_name"><h1>Ancestral Spirit</h1></header>
+								<p>Summon an Ancestral Spirit at target location. Deals 12 damage and inflicts Fading Snare to enemies and heals allies for 16 health. The spirit releases a second wave of energy after 2s that deals 36 damage and heals 24 health. </p>
+								<h2>Fading Snare</h2>
+								<p>Movement speed is reduced to 0% and gradually restored over 3s.</p>
+							</div>
+							<div class="ability_properties">
+								<div class="ability_property">
+									<div class="ability_property_value">0.1s</div>
+									<div class="ability_property_title">Cast Time</div>
+								</div>
+								<div class="ability_property">
+									<div class="ability_property_value">1s</div>
+									<div class="ability_property_title">Cooldown</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Condemn</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Condemn</header>
+						<div class="battlerite_description">Second impact stuns all enemies for 1.2s.</div>
+					</div>
+				</div>
+				<div class="battlerite battlerite_misc" onclick="battlerite_toggle(this)" id="Equlibrium">
+					<div class="ability_info_wrapper">
+						<div class="ability_info">
+							<div class="ability_description">
+								<header class="ability_name"><h1>Ancestral Spirit</h1></header>
+								<p>Summon an Ancestral Spirit at target location. Deals 12 damage and inflicts Fading Snare to enemies and heals allies for 16 health. The spirit releases a second wave of energy after 2s that deals 36 damage and heals 24 health. </p>
+								<h2>Fading Snare</h2>
+								<p>Movement speed is reduced to 0% and gradually restored over 3s.</p>
+							</div>
+							<div class="ability_properties">
+								<div class="ability_property">
+									<div class="ability_property_value">0.1s</div>
+									<div class="ability_property_title">Cast Time</div>
+								</div>
+								<div class="ability_property">
+									<div class="ability_property_value">1s</div>
+									<div class="ability_property_title">Cooldown</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="battlerite_preview">
+						<div class="battlerite_icon"></div>
+						<header class="battlerite_name">Equlibrium</header>
+					</div>
+					<div class="battlerite_card">
+						<div class="battlerite_remove"><div>Remove</div></div>
+						<header>Equlibrium</header>
+						<div class="battlerite_description">First impact applies Spirit Link on allies and Soul Link on enemies.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="battlerite_counter"><span>Battlerites: </span><span class="battlerite_counter_number">0</span><span> / 5</span></div>
+</div>
+</body>
